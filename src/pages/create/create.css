@@ -1,0 +1,46 @@
+.create {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  font-family: var(--font-reg);
+  width: 100% !important;
+  margin: auto;
+}
+
+.form button {
+  font-family: var(--font-bold);
+}
+
+.create_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.create_content label {
+  font-size: 16px;
+  font-family: var(--font-reg);
+}
+
+.create_content input {
+  margin-bottom: 20px;
+  background-color: var(--c-white);
+  color: var(--c-white);
+}
+
+.create_content .upload_img {
+  width: 100% !important;
+}
+
+@media (min-width: 768px) {
+  .form {
+    width: 70% !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .create {
+    flex-direction: row;
+  }
+}
