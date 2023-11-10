@@ -12,6 +12,7 @@ import UserFollowing from "./pages/userFollowing/UserFollowing"
 import UserFollowers from "./pages/userFollowers/UserFollowers"
 import UserFollowingPost from "./pages/userFollowingPost/UserFollowingPost"
 import DetailExplore from "./pages/detailExplore/DetailExplore"
+import PrivateRoute from "./components/privateRoute/PrivateRoute"
 
 function App() {
   return (
@@ -21,16 +22,94 @@ function App() {
           <Route index path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="registrasi" element={<Register />} />
-          <Route path="/scale" element={<Home />} />
-          <Route path="/scale/:userId" element={<UserFollowingPost />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="setting" element={<Setting />} />
-          <Route path="create" element={<Create />} />
-          <Route path="/user-following/:id" element={<UserFollowing />} />
-          <Route path="user-follower" element={<UserFollowers />} />
-          <Route path="/explore" element={<Explore />} />
-          <Route path="/explore/:userId" element={<UserPostExplore />} />
-          <Route path="/detail/:id" element={<DetailExplore />} />
+          <Route
+            path={"/scale"}
+            element={
+              <PrivateRoute>
+                <Home />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/profile"}
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/scale/:userId"}
+            element={
+              <PrivateRoute>
+                <UserFollowingPost />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/setting"}
+            element={
+              <PrivateRoute>
+                <Setting />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/create"}
+            element={
+              <PrivateRoute>
+                <Create />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/setting"}
+            element={
+              <PrivateRoute>
+                <Setting />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/user-following/:id"}
+            element={
+              <PrivateRoute>
+                <UserFollowing />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"user-follower"}
+            element={
+              <PrivateRoute>
+                <UserFollowers />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/explore"}
+            element={
+              <PrivateRoute>
+                <Explore />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/explore/:userId"}
+            element={
+              <PrivateRoute>
+                <UserPostExplore />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={"/detail/:id"}
+            element={
+              <PrivateRoute>
+                <DetailExplore />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
